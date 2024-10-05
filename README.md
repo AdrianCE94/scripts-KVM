@@ -1,5 +1,6 @@
 # scripts-KVM
 Automatización para KVM
+
 ![portada](img/descarga.png)
 # Descripción
 Este script automatiza la creación de máquinas virtuales en KVM. Se puede crear una máquina virtual con un solo comando, y se puede elegir entre diferentes sistemas operativos.
