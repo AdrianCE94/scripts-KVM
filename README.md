@@ -21,7 +21,7 @@ cd scripts-KVM
 2. Dar permisos de ejecución al script
 ```bash
 chmod a+x crearMaquina.sh
-chmod a+x default-net.sh
+chmod a+x defaultNet.sh
 chmod a+x static-bridge.sh
 ```
 3. Ejecutar el script
