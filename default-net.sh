@@ -8,6 +8,7 @@
 menu(){
 
     clear
+    echo "************************************"
     echo "Bienvenido al menu de configuracion de red"
     echo "************************************"
     echo "1. Consultar el estado de la red default"
@@ -86,12 +87,12 @@ do
             modificar_red
             ;;
         *)
-            echo "Opción no valida"
+            echo "Opción inválida. Por favor, selecciona una opción válida."
             ;;
     esac
-    read -p "Introduce una opcion: " opcion
+    read -p "Introduce una opcion: " intro
     menu
-    read -p "Introduce una opcion: " opcion
+    read -p "Vuelve una opcion: " opcion
 done
 
 
