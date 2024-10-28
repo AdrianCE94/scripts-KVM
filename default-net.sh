@@ -1,5 +1,5 @@
+#!/bin/bash
 # autor : Adrián Cabezuelo Expósito
-
 # Esto es un script de bash para automatizar la configuracion de red de KVM
 # Para la red default 
 
