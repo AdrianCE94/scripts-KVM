@@ -93,7 +93,7 @@ echo ""
 read -p "Introce una opción del menú: " opcion
 while [ "$opcion" != 6 ]
 do
-case $opcion info
+case "$opcion" in
 1)
     consultar_estado
     ;;
