@@ -1,3 +1,4 @@
+#!/bin/bash
 ## autor : Adrián Cabezuelo Expósito
 
 # Esto es un script de bash para automatizar la creacion de maquinas virtuales en KVM
