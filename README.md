@@ -6,6 +6,7 @@ Encontramos los siguientes scripts:
 - crearMaquina.sh: Crea una máquina virtual
 - defaultNet.sh: Crea una red virtual por defecto
 - bridgeKVM.sh : Crea una red virtual con puente estático
+- pool.sh : gestión de pools
 # Requisitos
 - Tener instalado KVM
 - .iso del sistema operativo que se desea instalar
@@ -21,6 +22,7 @@ cd scripts-KVM
 chmod a+x crearMaquina.sh
 chmod a+x defaultNet.sh
 chmod a+x bridgeKVM.sh
+chmod a+x pool.sh
 ```
 3. Ejecutar el script
 ```bash
