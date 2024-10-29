@@ -94,7 +94,7 @@ EOF
 
 verificar_bridge() {
     # Verificar que existe un bridge y que está asociado a una interfaz
-    brctl showbrctl
+   brctl show
 }
 
 on_off_bridge () {
@@ -226,7 +226,7 @@ case "$opcion" in
     on_off_bridge
     ;;
 5)
-    modificar_red()
+    modificar_red
     ;;
 *)
     echo "Opción no válida"
