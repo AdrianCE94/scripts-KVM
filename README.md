@@ -1,13 +1,11 @@
 # scripts-KVM
 Automatización para KVM
-
-![portada](img/descarga.png)
 # Descripción
-Este script automatiza la creación de máquinas virtuales en KVM. Se puede crear una máquina virtual con un solo comando, y se puede elegir entre diferentes sistemas operativos.
+Este script automatiza configuraciones importantes de kvm.
 Encontramos los siguientes scripts:
 - crearMaquina.sh: Crea una máquina virtual
-- default-net.sh: Crea una red virtual por defecto
-- static-bridge.sh: Crea una red virtual con puente estático
+- defaultNet.sh: Crea una red virtual por defecto
+- bridgeKVM.sh : Crea una red virtual con puente estático
 # Requisitos
 - Tener instalado KVM
 - .iso del sistema operativo que se desea instalar
@@ -22,7 +20,7 @@ cd scripts-KVM
 ```bash
 chmod a+x crearMaquina.sh
 chmod a+x defaultNet.sh
-chmod a+x static-bridge.sh
+chmod a+x bridgeKVM.sh
 ```
 3. Ejecutar el script
 ```bash
