@@ -41,7 +41,7 @@ configuracionRed(){
     echo ".........................."
     echo " IP: $(hostname -I)"
     echo "=============================================="
-    read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
+    read -p  "Quieres información sobre alguna red en particular(en caso afirmativo escribe si)? " res
     if [ $res = "si" ]; then
         read -p "¿Cual red quieres ver? " kvmred
         virsh net-info $kvmred
