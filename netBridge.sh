@@ -119,9 +119,9 @@ verificar_bridge() {
 # Activar/Desactivar la red bridge
 
 activar_desactivar_bridge() {
-    echo "ACTIVAR/DESACTIVAR RED BRIDGE"
-    echo "============================="
-    virsh net-list --all
+echo "ACTIVAR/DESACTIVAR RED BRIDGE"
+echo "============================="
+virsh net-list --all
 read -p "Ingrese el nombre del bridge para activar/desactivar: " bridge_name
 read -p "¿Desea activar (start) o desactivar (destroy) el bridge? " accion
 virsh net-$accion $name3
@@ -134,8 +134,8 @@ modificar_bridge() {
     echo "MODIFICAR LA CONFIGURACIÓN DE LA RED BRIDGE"
     echo "=========================================="
     virsh net-list --all
-read -p "Introduce la red que deseas modificar: " red
-virsh net-edit $red
+    read -p "Introduce la red que deseas modificar: " red
+    virsh net-edit $red
 }
 
 # INICIO
