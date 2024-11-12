@@ -43,7 +43,8 @@ configuracionRed(){
     echo "=============================================="
     read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
     if [ $res = "si" ]; then
-        virsh net-info $nombreRed
+        read -p "¿Cual red quieres ver? " kvmred
+        virsh net-info $kvmred
         read -p "Presiona Enter para volver al menu..." intro
     fi
     read -p "Presiona Enter para volver al menu..."
