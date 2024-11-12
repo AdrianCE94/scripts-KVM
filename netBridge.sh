@@ -44,7 +44,7 @@ configuracionRed(){
     read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
     if [ $res = "si" ]; th
         virsh net-info $nombreRed
-        read -p "Presiona Enter para volver al menu..."
+        read -p "Presiona Enter para volver al menu..." intro
     fi
     read -p "Presiona Enter para volver al menu..."
 }
