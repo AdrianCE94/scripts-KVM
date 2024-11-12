@@ -2,8 +2,18 @@
 # Autor : Adrián Cabezuelo Expósito
 # Script de bash para automatizar la configuración de la red "default" en KVM
 
-# FUNCIONES
 
+# FUNCIONES
+comprobarRoot () {
+    existe=$(id -u)
+    if [ $existe -eq 0 ]
+    then
+        echo "Puedes continuar"
+    else
+        echo "No eres root, pa tu casa"
+        exit 1
+    fi
+}
 menu() {
     clear
     echo "************************************"
@@ -73,16 +83,7 @@ modificar_config() {
     virsh net-edit default
 }
 
-comprobarRoot () {
-    existe=$(id -u)
-    if [ $existe -eq 0 ]
-    then
-        echo "Puedes continuar"
-    else
-        echo "No eres root, pa tu casa"
-        exit 1
-    fi
-}
+
 
 # inicio script
 
