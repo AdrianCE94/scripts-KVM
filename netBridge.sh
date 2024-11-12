@@ -42,7 +42,7 @@ configuracionRed(){
     echo " IP: $(hostname -I)"
     echo "=============================================="
     read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
-    if [ $res = "si" ]; th
+    if [ $res = "si" ]; then
         virsh net-info $nombreRed
         read -p "Presiona Enter para volver al menu..." intro
     fi
