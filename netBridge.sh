@@ -20,7 +20,7 @@ menu() {
     
     clear
     echo "********************************"
-    echo " 1.Ver de Configuración de Red"
+    echo "1.Ver de Configuración de Red"
     echo "2.Definir una red bridge estática"
     echo "3.Verificar que existe un bridge y que esta asociado a una interfaz"
     echo "4.Activar/Desactivar la red bridge"
@@ -41,17 +41,12 @@ configuracionRed(){
     echo ".........................."
     echo " IP: $(hostname -I)"
     echo "=============================================="
-    read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)?" res
-    if [ $res = "si" ]; then
-        virsh net-list --all
-        echo "=============================================="
-        read -p "Introduce el nombre de la red: " nombreRed
-        echo "Mostrando informacion sobre $nombreRed..."
-        echo " "
+    read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
+    if [ $res = "si" ]; th
         virsh net-info $nombreRed
+        read -p "Presiona Enter para volver al menu..."
     fi
     read -p "Presiona Enter para volver al menu..."
-    menu
 }
 
 # Definir una red bridge estática
