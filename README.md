@@ -9,6 +9,7 @@ Encontramos los siguientes scripts:
 - pool.sh : gestión de pools
 # Requisitos
 - Tener instalado KVM
+- Si quieres saber como instalar KVM --> ![instalacionKVM](https://github.com/AdrianCE94/instalacion-KVM)
 - .iso del sistema operativo que se desea instalar
 
 # Instalación

@@ -41,10 +41,11 @@ configuracionRed(){
     echo ".........................."
     echo " IP: $(hostname -I)"
     echo "=============================================="
-    read -p  "Quieres informació sobre alguna red en particular(en caso afirmativo escribe si)? " res
-    if [ $res = "si" ]; th
-        virsh net-info $nombreRed
-        read -p "Presiona Enter para volver al menu..."
+    read -p  "Quieres información sobre alguna red en particular(en caso afirmativo escribe si)? " res
+    if [ $res = "si" ]; then
+        read -p "¿Cual red quieres ver? " kvmred
+        virsh net-info $kvmred
+        read -p "Presiona Enter para volver al menu..." intro
     fi
     read -p "Presiona Enter para volver al menu..."
 }
@@ -118,9 +119,9 @@ verificar_bridge() {
 # Activar/Desactivar la red bridge
 
 activar_desactivar_bridge() {
-    echo "ACTIVAR/DESACTIVAR RED BRIDGE"
-    echo "============================="
-    virsh net-list --all
+echo "ACTIVAR/DESACTIVAR RED BRIDGE"
+echo "============================="
+virsh net-list --all
 read -p "Ingrese el nombre del bridge para activar/desactivar: " bridge_name
 read -p "¿Desea activar (start) o desactivar (destroy) el bridge? " accion
 virsh net-$accion $name3
@@ -133,8 +134,8 @@ modificar_bridge() {
     echo "MODIFICAR LA CONFIGURACIÓN DE LA RED BRIDGE"
     echo "=========================================="
     virsh net-list --all
-read -p "Introduce la red que deseas modificar: " red
-virsh net-edit $red
+    read -p "Introduce la red que deseas modificar: " red
+    virsh net-edit $red
 }
 
 # INICIO
