@@ -20,17 +20,17 @@ menu(){
 crear_maquina(){
     #pedir datos necesarios para la maquina, nonmbre,RAM,HD,SO,numero cpus y red.Nos dará la posibilidad de crear otra maquina.
     read -p "Introduce el nombre de la maquina: " nombre
-    read -p "Introduce la cantidad de RAM en MB: " ram
+    read -p "Introduce la ruta completa de la imagen ISO: " iso
     read -p "Introduce la cantidad de HD en GB: " hd
-    read -p "Introduce el sistema operativo(DEBINA/CENTOS/UBUNTU): " so
-    read -p "Introduce el numero de cpus: " cpus
+    read -p "Introduce la cantidad de RAM en MB: " ram
+    read -p "Introduce el numero de cpus: " cpu
     read -p "Introduce la red a la que se conectara: " red
-    read -p "Introduce la ruta de la imagen ISO: " iso
+    
 
     #creamos la maquina
-    virt-install --connect qemu:///system --virt-type kvm --name $nombre --cdrom $iso --disk size=$hd --memory $ram --vcpus $cpus --os-varian=$so --network network=$red
+    virt-install--connect qemu:///system--virt-typekvm--name $nombre --cdrom $iso --osinfo detect=on --disksize=$hd --memory $ram --vcpus $cpu 
     echo "Creando....."
-    echo "La maquina $nombre se ha creado"
+    echo "La maquina $nombre se ha creado con exito"
     read -p "Desea crear otra maquina? (s/n): " opcion
     if [ $opcion == "s" ]; then
         crear_maquina
@@ -46,12 +46,13 @@ ver_maquinas(){
 
 eliminar_maquina(){
     ver_maquinas
-    echo "************************************"
-    #nos permite eliminar una maquina
+    echo "=======MAQUINAS DISPONIBLES PARA BORRAR=============="
+    virsh list --all
+    echo "*******************************************************"
     read -p "Introduce el nombre de la maquina a eliminar: " nombre
-    virsh destroy $nombre
-    virsh undefine $nombre
-    echo "Eliminando....."
+    virsh destroy $nombre 
+    virsh undefine $nombre --remove-all-storage
+    echo "Eliminando $nombre....."
     echo "La maquina $nombre se ha eliminado"
 }
 

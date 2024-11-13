@@ -10,7 +10,7 @@ comprobarRoot () {
     then
         echo "Puedes continuar"
     else
-        echo "No eres root, pa tu casa"
+        echo "Debes ser Root para ejecutar este script"
         exit 1
     fi
 }
@@ -29,7 +29,7 @@ menu() {
 
 consultar_estado() {
     echo "Estado de la red default:"
-    virsh net-list --all | awk 'NR==1 || /default/'
+    virsh net-list --all |  awk 'NR==1 || /default/'
     echo "mostrando información adicional..."
     echo "----------------------------------------"
     virsh net-info default
@@ -46,7 +46,7 @@ echo ""
 echo "Mostrando info de la red...."
 echo " "
 virsh net-list --all | awk 'NR==1 || /default/'
-echo ""
+echo " "
 read -p "Introduce 1 para activar y 0 para desactivar la red default :" accion
     if [ $accion -eq 1 ]; then
         virsh net-start default
