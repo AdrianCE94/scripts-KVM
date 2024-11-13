@@ -27,44 +27,41 @@ crear_maquina(){
     read -p "Introduce la red a la que se conectara: " red
     
     #comprobrobar ruta de la iso
-    if [ ! -f $iso ]; then
+    if [ ! -f "$iso" ]; then
         echo "La ruta de la imagen ISO no es correcta"
         exit 1
     fi
     #creamos la maquina
-    virt-install--connect qemu:///system--virt-typekvm--name $nombre --cdrom $iso --osinfo detect=on --disksize=$hd --memory $ram --vcpus $cpu --network network=$red
-    echo "Creando....."
+    virt-install --connect qemu:///system --virt-type kvm --name $nombre --cdrom $iso --osinfo detect=on --disk size=$hd --memory $ram --vcpus $cpu --network network=$red
+    echo "Creando la maquina en KVM....."
     echo "La maquina $nombre se ha creado con exito"
     read -p "Desea crear otra maquina? (s/n): " opcion
-    if [ $opcion == "s" ]; then
+    if [ "$opcion" == "s" ]; then
         crear_maquina
     fi
 }
 
-ver_maquinas(){
-    #nos muestra las maquinas que tenemos creadas
-    echo "Las maquinas virtuales que tenemos son: "
-    virsh list --all
-
-}
-
 eliminar_maquina(){
-    ver_maquinas
+    
     echo "=======MAQUINAS DISPONIBLES PARA BORRAR=============="
     virsh list --all
     echo "*******************************************************"
-    read -p "Introduce el nombre de la maquina a eliminar: " nombre
-    virsh destroy $nombre 
-    virsh undefine $nombre --remove-all-storage
-    echo "Eliminando $nombre....."
-    echo "La maquina $nombre se ha eliminado"
+    read -p "Introduce el nombre de la máquina a eliminar: " nombre
+    if virsh list --all | grep -q "$nombre"; then
+        virsh destroy "$nombre"
+        virsh undefine "$nombre" --remove-all-storage
+        echo "La máquina $nombre ha sido eliminada."
+    else
+    echo "La máquina $nombre no existe."
+    fi
+
 }
 
 # INICIO
 
 menu
 read -p "Introduce una opcion: " opcion
-while [ "$opcion" != 4 ]
+while [ "$opcion" != 3 ]
 do
     case $opcion in
         1)
@@ -73,14 +70,11 @@ do
         2)
             ver_maquinas
             ;;
-        3)
-            eliminar_maquina
-            ;;
         *)
             echo "Opción no valida"
             ;;
     esac
-    read -p "Introduce una opcion: " opcion
+    read -p "INTRO PARA CONTINUAR" INTRO
     menu
-    read -p "Introduce una opcion: " opcion
+    read -p "Introce una opción del menú: " opcion
 done
