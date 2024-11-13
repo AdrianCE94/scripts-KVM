@@ -35,7 +35,7 @@ crear_maquina(){
     echo "Creando la maquina en KVM....."
     echo "La maquina $nombre se ha creado con exito"
     read -p "Desea crear otra maquina? (s/n): " opcion
-    if [ "$opcion" == "s" ]; then
+    if [ "$opcion" = "s" ]; then
         crear_maquina
     fi
 }

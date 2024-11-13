@@ -22,6 +22,9 @@ cd scripts-KVM
 ```bash
 chmod a+x crearVM.sh
 chmod a+x redDefault.sh
+chmod a+x  pool.sh
+# si quieres renombrar el script
+mv crearVM.sh nombre_que_tu_quieras
 ```
 3. Ejecutar el script
 ```bash
