@@ -26,9 +26,13 @@ crear_maquina(){
     read -p "Introduce el numero de cpus: " cpu
     read -p "Introduce la red a la que se conectara: " red
     
-
+    #comprobrobar ruta de la iso
+    if [ ! -f $iso ]; then
+        echo "La ruta de la imagen ISO no es correcta"
+        exit 1
+    fi
     #creamos la maquina
-    virt-install--connect qemu:///system--virt-typekvm--name $nombre --cdrom $iso --osinfo detect=on --disksize=$hd --memory $ram --vcpus $cpu 
+    virt-install--connect qemu:///system--virt-typekvm--name $nombre --cdrom $iso --osinfo detect=on --disksize=$hd --memory $ram --vcpus $cpu --network network=$red
     echo "Creando....."
     echo "La maquina $nombre se ha creado con exito"
     read -p "Desea crear otra maquina? (s/n): " opcion
@@ -60,7 +64,7 @@ eliminar_maquina(){
 
 menu
 read -p "Introduce una opcion: " opcion
-while [ "$opcion" !=4 ]
+while [ "$opcion" != 4 ]
 do
     case $opcion in
         1)
