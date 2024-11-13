@@ -9,12 +9,11 @@
 menu(){
 
     clear
-    echo "Bienvenido al menu de creacion de maquinas virtuales"
+    echo "Bienvenido al menú de creacion de maquinas virtuales"
     echo "************************************"
     echo "1. Crear una maquina virtual"
-    echo "2. Ver las maquinas virtuales"
-    echo "3. Eliminar una maquina virtual"
-    echo "4. Salir"
+    echo "2. Eliminar una maquina virtual"
+    echo "3. Salir"
 }
 
 crear_maquina(){
@@ -68,7 +67,7 @@ do
             crear_maquina
             ;;
         2)
-            ver_maquinas
+            eliminar_maquina
             ;;
         *)
             echo "Opción no valida"
